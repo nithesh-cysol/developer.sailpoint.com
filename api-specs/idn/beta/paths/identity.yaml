@@ -1,0 +1,76 @@
+get:
+  operationId: getIdentity
+  tags:
+    - Identities
+  summary: Identity Details
+  description: >-
+    This API returns a single identity using the Identity ID.
+  security:
+    - oauth2:
+      - "idn:identity:read"
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "200":
+      description: An identity object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Identity.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+
+delete:
+  operationId: deleteIdentity
+  tags:
+    - Identities
+  summary: Deletes an identity.
+  description: >-
+    The API returns successful response if the requested identity was deleted.
+  security:
+    - oauth2:
+        - "idn:identity:delete"
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Identity Id
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      description: >-
+        Client Error - Returned if the request is invalid. It may indicate that the specified identity is marked as protected and cannot be deleted.
+      content:
+        application/json:
+          schema:
+            $ref: "../../v3/schemas/ErrorResponseDto.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
