@@ -97,7 +97,7 @@ For the `PATCH` operations, you must provide an `op` key. For new configurations
 
 ## Example API calls by Rule Type
 
-### BeforeProvisioning Rule
+### BeforeProvisioning Rule (CLOUD RULE)
 
 `PATCH` /v3/sources/{id}
 
@@ -143,7 +143,7 @@ The value key is a list. All available AfterCreate, AfterModify, BeforeCreate, a
 
 ```
 
-### Correlation Rule
+### Correlation Rule (CLOUD RULE)
 
 `PATCH` /v3/sources/{id}
 
@@ -163,7 +163,7 @@ Content-Type: `application/json-patch+json`
 ]
 ```
 
-### ManagerCorrelation Rule
+### ManagerCorrelation Rule (CLOUD RULE)
 
 `PATCH` /v3/sources/{id}
 
